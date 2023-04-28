@@ -125,6 +125,254 @@
           overflow: hidden;
           img {
             object-fit: scale-down;
+            .image_editor {
+              z-index: 1000;
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: rgba(0, 0, 0, 0.7);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow-y: scroll;
+              .card {
+                padding: 28px;
+                width: 370px;
+                height: 550px;
+                background-color: rgba(0, 0, 0, 0.8);
+                box-shadow: 0 8px 16px 0px rgb(201, 201, 201);
+
+                .reset {
+                  margin-top: 20px;
+                  .save {
+                    background-color: #e335f3 !important;
+                    margin-left: 5px;
+                  }
+                  button {
+                    background-color: rgb(242, 53, 85);
+                    padding: 8px;
+                    border-radius: 3px;
+                    outline: none;
+                    border: 1px solid #dad7d7;
+                    cursor: pointer;
+                    color: #fff;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    font-size: 15px;
+                  }
+                }
+                span {
+                  font-size: 15px;
+                  color: #404040;
+                  margin-bottom: 4px;
+                  display: block;
+                }
+                .edit {
+                  // visibility: hidden;
+                  .filter_key {
+                    display: flex;
+                    grid-template-columns: repeat(6, 1fr);
+                    grid-gap: 8px;
+                    position: absolute;
+                    bottom: 0;
+                    // left: 0;
+                    justify-content: center;
+                    margin-bottom: 10px;
+                    margin-left: 30px;
+                    button.active {
+                      background-color: rgb(84, 93, 216);
+                      color: #fff;
+                    }
+                    button {
+                      border-radius: 50%;
+                      padding: 8px;
+                      background-repeat: 3px;
+                      border: 1px solid #dad7d7;
+                      cursor: pointer;
+                      color: #404040;
+                      text-transform: capitalize;
+                      justify-content: center;
+                      align-items: center;
+                      align-content: center;
+                      width: 35px;
+                      height: 35px;
+                    }
+                  }
+                  .image_select {
+                    margin: 20px 0px;
+                    display: flex;
+                    justify-content: center;
+                    input {
+                      display: none;
+                    }
+                    label {
+                      padding: 6px;
+                      outline: none;
+                      border: 0.5px solid #dad7d7;
+                      cursor: pointer;
+                      color: #fff;
+                      font-weight: 600;
+                      text-transform: capitalize;
+                      font-size: 15px;
+                      background-color: transparent;
+                      // margin-left: 5px;
+                      border-radius: 12px;
+                    }
+
+                    label:hover {
+                      background-color: orange;
+                    }
+                  }
+                  .filter_slider {
+                    // margin: 15px 30px;
+                    margin-bottom: 50px;
+                    position: absolute;
+                    width: 80%;
+                    bottom: 0;
+                    .label_bar {
+                      margin-bottom: 4px;
+                      display: flex;
+                      justify-content: space-between;
+                      label,
+                      span {
+                        color: white;
+                        font-size: 15px;
+                        text-transform: capitalize;
+                      }
+                    }
+                    input {
+                      width: 100%;
+                    }
+                  }
+                  .rotate {
+                    label {
+                      margin-bottom: 8px;
+                      display: block;
+                      font-size: 15px;
+                      color: #404040;
+                    }
+                    .icon {
+                      display: grid;
+                      grid-template-rows: repeat(4, 1fr);
+                      grid-gap: 5px;
+                      width: 30px;
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      margin: 5px;
+                      margin-top: 30px;
+                      div {
+                        border: 1px solid rgb(179, 194, 194);
+                        background-color: black;
+                        color: white;
+                        padding: 8px 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                      }
+                      .crop {
+                        background-color: #8e33b7;
+                      }
+                      .redo,
+                      .undo,
+                      .button {
+                        background-color: #4a55f3;
+                        // margin-left: 5px;
+                        color: #fff;
+                        padding: 5px 10px;
+                        font-size: 18px;
+                      }
+                    }
+                  }
+                }
+
+                .image_section {
+                  // margin-left: 8px;
+                  height: 300px;
+                  width: 350px;
+                  background-color: inherit;
+                  height: 300px;
+                  margin-top: 20px;
+                  .image {
+                    width: 300px;
+                    height: 320px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: auto;
+                    margin: 0px 30px;
+                    img {
+                      object-fit: contain;
+                      transition: all 0.5s;
+                      width: auto;
+                      height: auto;
+                      max-width: 100%;
+                      max-height: 100%;
+                    }
+                    label {
+                      width: 100%;
+                      height: 90%;
+                      display: flex;
+                      border: dotted;
+                      border-color: #c5c9c5;
+                      cursor: pointer;
+                      justify-content: center;
+                      align-items: center;
+                      flex-direction: column;
+                      svg {
+                        font-size: 40px;
+                        color: #b4acac;
+                      }
+                      span {
+                        color: #404040;
+                      }
+                    }
+                    .close-modal {
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      position: absolute;
+                      margin: 3px;
+                      top: 0;
+                      right: 0;
+                      color: white;
+                      cursor: pointer;
+                      // border: 1px solid white;
+                      border-radius: 50%;
+                      height: 20px;
+                      width: 20px;
+                    }
+                  }
+                  .image_caption {
+                    width: 100%;
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    textarea {
+                      width: 90%;
+                      padding: 5px;
+                      border-radius: 10px;
+                      font-family: montserrat;
+                    }
+                    button {
+                      background-color: #4a55f3;
+                      margin-top: 5px;
+                      // margin-right: auto;
+                      margin-left: -30px;
+                      border-radius: 10px;
+                      padding: 4px 12px;
+                      color: white;
+                      width: 100px;
+                      // justify-self: space-between;
+                    }
+                  }
+                }
+              }
+            }
+
             transition: all 0.5s;
             width: 100%;
             height: 100%;
